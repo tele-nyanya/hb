@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 1 страница </title>         <link href="css/icon.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/Main.js"></script>
+    <link href="css/material.min.css"rel="stylesheet" href="mdl/material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <link rel="stylesheet" href="fonts/Roboto-ThinItalic" type="text/css">
+    <link href="css/grid.css" rel="stylesheet">
+    <script src="js/material.min.js"></script>
+
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button"><i class="material-icons" style="
+    margin-top: 23%;
+">?</i></div>
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Мои классы</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Меню</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href=""><i class="material-icons">person</i> Мой профиль</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">border_all</i> Мои классы</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">settings</i> Настройки</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">help_outline</i> О проекте</a>
+        </nav>
+    </div>
+
+    <aside class="profile-card" style="overflow:auto;">
+        <header>
+            <!-- here’s the avatar -->
+            <a target="_blank" href="#">
+
+                <div>
+                    <img src="img/часы.png" height="45%" weight="45%" alt="">
+                </div>
+                <div>
+                    <h1>Health</h1>
+                    <h1>Braslet</h1>
+                </div>
+            </a>
+            <!-- the username -->
+            <div class="profile-bio">
+                <p></p>
+                <h6>  Авторизация</h6>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">Введите логин</label>
+                </div><br>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample4">
+                    <label class="mdl-textfield__label" for="sample3">Введите пароль</label>
+                </div><br>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                    <i class="material-icons">arrow_forward</i>
+                </button>
+            </div>
+
+</div>
+<script>
+    $('.mdl-js-button').click(function () {
+        $.ajax({
+            url:"/hb/auth.php",
+            data:{
+                login: $('#sample3').val(),
+                pass: $('#sample4').val()
+            },
+            success:function(data){
+                if(data==00)
+                    alert('Неверные данные')
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

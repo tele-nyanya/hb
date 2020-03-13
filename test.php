@@ -1,0 +1,9 @@
+<html>
+<script>
+    $.ajax{
+        success:function(data){
+            append
+        }
+    }
+</script>
+</html>
